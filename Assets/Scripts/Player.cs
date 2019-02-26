@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
 
     [Header("Camera")]
     public float screenShakeAmount;
+    public float screenShakeDecay;
     public CinemachineVirtualCamera virtualCam;
     private CinemachineBasicMultiChannelPerlin noise;
 
@@ -58,6 +59,7 @@ public class Player : MonoBehaviour
     void LateUpdate()
     {
         // SCREEN SHAKE
+        screenShakeAmount = Mathf.Clamp(screenShakeAmount - screenShakeDecay * Time.deltaTime, 0, float.MaxValue);
         noise.m_AmplitudeGain = screenShakeAmount;
     }
 

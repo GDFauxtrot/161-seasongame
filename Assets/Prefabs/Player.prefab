@@ -245,8 +245,10 @@ MonoBehaviour:
   speed: 8
   jumpSpeed: 10
   movementXLerp: 0.2
-  rb2D: {fileID: 6688032315154783171}
+  screenShakeAmount: 0
+  screenShakeDecay: 10
   virtualCam: {fileID: 3829075930574273202}
+  rb2D: {fileID: 6688032315154783171}
 --- !u!1 &8687104642398552648
 GameObject:
   m_ObjectHideFlags: 0
