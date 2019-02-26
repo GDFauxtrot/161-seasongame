@@ -244,7 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   jumpSpeed: 10
-  movementXLerp: 0.15
+  movementXLerp: 0.2
   rb2D: {fileID: 6688032315154783171}
   virtualCam: {fileID: 3829075930574273202}
 --- !u!1 &8687104642398552648
