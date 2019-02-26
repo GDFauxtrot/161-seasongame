@@ -9,9 +9,11 @@ public class Player : MonoBehaviour
     [Header("Movement")]
     public float speed;
     public float jumpSpeed;
-    public bool grounded;
+    public float movementXLerp;
+    private bool grounded;
     private bool canJump;
     private Vector2 input;
+    private Vector2 velocity;
     private ContactPoint2D[] contacts;
 
     [Header("Miscellaneous")]
@@ -35,17 +37,25 @@ public class Player : MonoBehaviour
         #region Movement + Jump
 
         // Horizontal movement
-        rb2D.velocity = new Vector2(input.x * speed, rb2D.velocity.y);
+        velocity = new Vector2(input.x * speed, rb2D.velocity.y);
 
         // Jump (uses canJump instead of grounded)
         if (jumpInput && canJump)
         {
             canJump = false;
+            velocity = new Vector2(velocity.x, jumpSpeed);
+            // Force RB velocity, issues arise otherwise
             rb2D.velocity = new Vector2(rb2D.velocity.x, jumpSpeed);
         }
 
         #endregion
 
+    }
+
+    void FixedUpdate()
+    {
+        // Apply velocity to RB2D, including horizontal smoothing
+        rb2D.velocity = new Vector2(Mathf.Lerp(rb2D.velocity.x, velocity.x, movementXLerp), velocity.y);
     }
 
     void OnCollisionEnter2D(Collision2D col)
