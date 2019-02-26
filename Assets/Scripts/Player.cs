@@ -14,15 +14,19 @@ public class Player : MonoBehaviour
     private bool canJump;
     private Vector2 input;
     private Vector2 velocity;
-    private ContactPoint2D[] contacts;
+    private ContactPoint2D[] contacts = new ContactPoint2D[8];
+
+    [Header("Camera")]
+    public float screenShakeAmount;
+    public CinemachineVirtualCamera virtualCam;
+    private CinemachineBasicMultiChannelPerlin noise;
 
     [Header("Miscellaneous")]
     public Rigidbody2D rb2D;
-    public CinemachineVirtualCamera virtualCam;
 
     void Awake()
     {
-        contacts = new ContactPoint2D[8];
+        noise = virtualCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
 
     void Update()
@@ -49,12 +53,17 @@ public class Player : MonoBehaviour
         }
 
         #endregion
+    }
 
+    void LateUpdate()
+    {
+        // SCREEN SHAKE
+        noise.m_AmplitudeGain = screenShakeAmount;
     }
 
     void FixedUpdate()
     {
-        // Apply velocity to RB2D, including horizontal smoothing
+        // Apply velocity to RB2D, incl. horizontal smoothing
         rb2D.velocity = new Vector2(Mathf.Lerp(rb2D.velocity.x, velocity.x, movementXLerp), velocity.y);
     }
 
