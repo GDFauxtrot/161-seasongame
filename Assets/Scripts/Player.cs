@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
+
 public class Player : MonoBehaviour
 {
 
@@ -10,9 +11,12 @@ public class Player : MonoBehaviour
     public float speed;
     public float jumpSpeed;
     public float movementXLerp;
-    private bool grounded;
+    private bool grounded, groundedLastFrame;
     private bool canJump;
     private Vector2 input;
+
+    [Header("Physics")]
+    public Rigidbody2D rb2D;
     private Vector2 velocity;
     private ContactPoint2D[] contacts = new ContactPoint2D[8];
 
@@ -22,11 +26,17 @@ public class Player : MonoBehaviour
     public CinemachineVirtualCamera virtualCam;
     private CinemachineBasicMultiChannelPerlin noise;
 
-    [Header("Miscellaneous")]
-    public Rigidbody2D rb2D;
+    [Header("Animation")]
+    public Animator spriteAnimator;
+    public Vector2 runningSpeedRange;
+    public Transform spriteTransform;
+
+    // [Header("Miscellaneous")]
+    
 
     void Awake()
     {
+        groundedLastFrame = true; // triggers Midair anim correctly
         noise = virtualCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
 
@@ -54,6 +64,41 @@ public class Player : MonoBehaviour
         }
 
         #endregion
+
+        #region Animation
+
+        // Set parameters
+        spriteAnimator.SetBool("Grounded", grounded);
+        spriteAnimator.SetInteger("MovingDir", (int) input.x);
+        spriteAnimator.SetFloat("MovementSpeed", Mathf.Abs(rb2D.velocity.x));
+
+        // Set facing direction
+        if (input.x != 0)
+        {
+            spriteTransform.localScale = new Vector3(input.x, 1, 1);
+        }
+
+        // Set midair anim
+        if (groundedLastFrame && !grounded)
+        {
+            spriteAnimator.Play("Midair", 0, 0);
+        }
+
+        // Set running speed
+        if (spriteAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Running")
+        {
+            float runAnimSpd = Util.InverseLerpUnclamped(
+                runningSpeedRange.x, runningSpeedRange.y, Mathf.Abs(rb2D.velocity.x));
+            spriteAnimator.speed = runAnimSpd;
+        }
+        else
+        {
+            spriteAnimator.speed = 1;
+        }
+
+        #endregion
+
+        groundedLastFrame = grounded;
     }
 
     void LateUpdate()
