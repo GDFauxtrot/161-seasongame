@@ -212,6 +212,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1656eb79b387d4498a5f1e7502e99d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rows: 2
+  columns: 3
+  levelWidth: 20
+  levelHeight: 12
+  levelTypes: 2
+  levelPiecesA:
+  - {fileID: 4668701881166841567, guid: 0c8ba9a01aeef794d98d8f8c4090f5bf, type: 3}
+  - {fileID: 7516813578064853059, guid: 14198807524b4ca4da49419d1e0d41e7, type: 3}
+  - {fileID: 7516813578064853059, guid: 187796177ac371d46a5ba231e0e122b4, type: 3}
+  levelPiecesB:
+  - {fileID: 7057935077293160254, guid: c2030b013e98e4e49bcb3746f73b3c0b, type: 3}
+  - {fileID: 3288810784491266180, guid: 34c70cedaaec97f4dae2c5670d12bc77, type: 3}
+  - {fileID: 5750663601246850282, guid: 5efcc928a4bd5f64f9d44ffc0a8aa205, type: 3}
+  - {fileID: 9045092946072842178, guid: 9bf62d46c921cea45bd7c6f8f562b1b5, type: 3}
+  levelPiecesC: []
+  levelPiecesD: []
+  levelPiecesE: []
+  levelPiecesF: []
 --- !u!1 &1461793752
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +249,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1461793753
 Transform:
   m_ObjectHideFlags: 0
