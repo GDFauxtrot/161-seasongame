@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class LevelPiece: MonoBehaviour
 {
-    public int levelID;
-    public List<int> illegalAdjacentLevels;
-    public List<int> requiredAdjacentLevel;
+    public int lvlID;
+    public List<int> illegalAdjacentLvls;
+    public List<int> requiredAdjacentLvl;
+    public List<int> requiredUpperLvl;
 
 }
