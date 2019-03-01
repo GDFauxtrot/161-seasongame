@@ -38,21 +38,55 @@ public class LevelPieceCreator : MonoBehaviour
     {
         levelHolder = new GameObject("Holder").transform;
         //int length = Random.Range(minLvP, maxLvP);
+        List<int> filledInLevels = new List<int>(rows * columns);
         int xPosition = 0;
         int yPosition = 0;
+        filledInLevels.Add(placeStairs());
+
+        int count = 0;
         for (int i = 0; i < rows; i++)
         {
-            for(int j = 0; j < columns; j++)
+            for (int j = 0; j < columns; j++)
             {
-                GameObject toInstantiate = Instantiate(IdToLvlType(ChooseRandomPiece()),
-                    new Vector3(xPosition, yPosition,0),
-                    Quaternion.identity);
-                toInstantiate.transform.parent = levelHolder;
-                xPosition += levelWidth;
+                Debug.Log(i*columns + j);
+                if (filledInLevels.Contains(i*columns + j)) 
+                {
+                    GameObject toInstantiate = Instantiate(IdToLvlType(ChooseRandomPiece()),
+                        new Vector3(xPosition, yPosition,0),
+                        Quaternion.identity);
+                    toInstantiate.transform.parent = levelHolder;
+                    xPosition += levelWidth;
+                    filledInLevels.Add(i*columns + j);
+                    count++;
+                }
             }
             xPosition = 0;
             yPosition += levelHeight;
         }
+    }
+
+    int placeStairs()
+    {
+        int xPosition = 0;
+        int yPosition = 0;
+        int floorNum = Random.Range(0, columns);
+        switch(floorNum)
+        {
+            case 0:
+                xPosition = 0;
+                break;
+            case 1:
+                xPosition = levelWidth;
+                break;
+            case 2:
+                xPosition = levelWidth * 2;
+                break;
+        }
+        GameObject stairs = Instantiate(IdToLvlType(4), 
+            new Vector3(xPosition, yPosition, 0),
+            Quaternion.identity);
+
+        return floorNum;
     }
 
     int ChooseRandomPiece()
@@ -67,7 +101,7 @@ public class LevelPieceCreator : MonoBehaviour
         GameObject levelPiece = null;
         switch (id) {
             case 0:
-                levelPiece =levelPiecesA[Random.Range(0, levelPiecesA.Capacity)];
+                levelPiece = levelPiecesA[Random.Range(0, levelPiecesA.Capacity)];
                 break;
             case 1:
                 levelPiece = levelPiecesB[Random.Range(0, levelPiecesB.Capacity)];
