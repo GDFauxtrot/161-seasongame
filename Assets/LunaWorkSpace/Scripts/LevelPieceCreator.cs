@@ -49,8 +49,8 @@ public class LevelPieceCreator : MonoBehaviour
             for (int j = 0; j < columns; j++)
             {
                 Debug.Log(i*columns + j);
-                if (filledInLevels.Contains(i*columns + j)) 
-                {
+                //if (filledInLevels.Contains(i*columns + j)) 
+                //{
                     GameObject toInstantiate = Instantiate(IdToLvlType(ChooseRandomPiece()),
                         new Vector3(xPosition, yPosition,0),
                         Quaternion.identity);
@@ -58,7 +58,7 @@ public class LevelPieceCreator : MonoBehaviour
                     xPosition += levelWidth;
                     filledInLevels.Add(i*columns + j);
                     count++;
-                }
+                //}
             }
             xPosition = 0;
             yPosition += levelHeight;
