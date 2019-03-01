@@ -2,117 +2,172 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class LevelManager : MonoBehaviour
 {
-    //Use in several procedurally made objects to keep control of instances
-    [System.Serializable]
-    public class Counter
-    {
-        public int minimum;
-        public int maximum;
-        public Counter(int min, int max)
-        {
-            minimum = min;
-            maximum = max;
-        }
-    }
+    [Header("Level Stats")]
+    public int rows;
+    public int columns;
+    public int levelWidth;
+    public int levelHeight;
 
-    [Header("Board Stats")]
-    public int columns = 8;
-    public int rows = 8;
+    [Header("Level Pieces")]
+    public int levelTypes;
+    
+    //Regular level pieces Type
+    public List<GameObject> levelPiecesA;
+    public List<GameObject> levelPiecesB;
+    public List<GameObject> levelPiecesC;
+    [Space]
+    [Space]
 
-    [Header("Amounts")]
-    public Counter seasoningsCount = new Counter(5, 8);
-    public Counter platformsCount = new Counter(5, 8);
+    //Floor connectors
+    public List<GameObject> levelPiecesD; //Level piece with holes in the floor
+    public List<GameObject> levelPiecesE; //Level piece with stairs to go to upper floor
+    public GameObject walls;
 
-    [Header("Tiles")]
-    public List<GameObject> floorTiles;
-    public List<GameObject> backgroundTiles;
-    public List<GameObject> ceilingTiles;
-    public List<GameObject> rightWallTiles;
-    public List<GameObject> leftWallTiles;
-    public List<GameObject> platformTiles;
-    public List<GameObject> seasonings;
+    //2DList that keep tracks of all level pieces and their locations based on index
+    List<List<GameObject>> map = new List<List<GameObject>>();
 
-    public Transform levelHolder;
-    private List<Vector3> gridPositions = new List<Vector3>();
+    //Parent of all level pieces generated on scene
+    Transform levelHolder;
 
     // Start is called before the first frame update
     void Start()
     {
-        Init();
+        InitializeMap();
+        PopulateLevel();
+        CreateWalls();
+        ConnectFloors();
     }
 
-    // Update is called once per frame
-    void Update()
+    //Randomly generates a levle by using normal level chunk pieces
+    void PopulateLevel()
     {
-      
-    }
+        levelHolder = new GameObject("Holder").transform;
+        int xPosition = 0;
+        int yPosition = 0;
 
-    private void Init()
-    {
-        InitializeList();
-        BoardSetUp();
-        LayoutObject(seasonings, seasoningsCount.minimum, seasoningsCount.maximum);
-        LayoutObject(platformTiles, platformsCount.minimum, platformsCount.maximum);
-    }
-
-    //Clears the grid position list and creates a new one based on rows and columns
-    public void InitializeList()
-    {
-        gridPositions.Clear();
-        for(int x = 0; x < columns -1; x++)
+        for (int i = 0; i < rows; i++)
         {
-            for(int y = 0; y < rows -1; y++)
-                gridPositions.Add(new Vector3(x,y,0));            
+            for (int j = 0; j < columns; j++)
+            {
+                
+                GameObject toInstantiate = Instantiate(IdToLvlType(Random.Range(0, 3)),
+                    new Vector3(xPosition, yPosition, 0), Quaternion.identity);
+               
+                toInstantiate.transform.parent = levelHolder;
+                map[i][j] = toInstantiate; //added to map 2DList of Map
+                xPosition += levelWidth;
+            }
+            xPosition = 0;
+            yPosition += levelHeight;
         }
     }
-
-
-    //Populates the scene based on the grid by randomly choosing tiles from the lists
-    void BoardSetUp()
+    /*
+    int placeStairs()
     {
-        levelHolder = new GameObject("Board").transform;
-        for(int x = -1; x < columns + 1; x++)
+        int xPosition = 0;
+        int yPosition = 0;
+        int floorNum = Random.Range(0, columns);
+        switch(floorNum)
         {
-            for(int y = -1; y < rows + 1; y++)
+            case 0:
+                xPosition = 0;
+                break;
+            case 1:
+                xPosition = levelWidth;
+                break;
+            case 2:
+                xPosition = levelWidth * 2;
+                break;
+        }
+        GameObject stairs = Instantiate(IdToLvlType(4), 
+            new Vector3(xPosition, yPosition, 0),
+            Quaternion.identity);
+
+        return floorNum;
+    }
+    */
+
+
+    //Returns a random level piece from the level chunk specified in param
+    GameObject IdToLvlType(int id)
+    {
+        GameObject levelPiece = null;
+        switch (id) {
+            case 0:
+                levelPiece = levelPiecesA[Random.Range(0, levelPiecesA.Capacity)];
+                break;
+            case 1:
+                levelPiece = levelPiecesB[Random.Range(0, levelPiecesB.Capacity)];
+                break;
+            case 2:
+                levelPiece = levelPiecesC[Random.Range(0, levelPiecesC.Capacity)];
+                break;
+        }
+
+        if (levelPiece == null)
+            Debug.LogError("Piece no found id:" + id);
+        return levelPiece;
+    }
+
+    //Populate the map 2D List GameObj base on rows & columns with empty GameObj placeholders
+    void InitializeMap()
+    {
+        for(int i = 0; i < rows; i++)
+        {
+            List<GameObject> temp = new List<GameObject>();
+            for(int j = 0; j < columns; j++)
             {
-                GameObject toInstantiate = backgroundTiles[Random.Range(0, backgroundTiles.Count)];
-                if (x == columns)
-                    toInstantiate = rightWallTiles[Random.Range(0, rightWallTiles.Count)];
-                else if (x == -1)
-                    toInstantiate = leftWallTiles[Random.Range(0, leftWallTiles.Count)];
-
-                else if (y == rows)
-                    toInstantiate = ceilingTiles[Random.Range(0, ceilingTiles.Count)];
-
-                else if (y == -1 && x != -1 && x != columns)
-                    toInstantiate = floorTiles[Random.Range(0, floorTiles.Count)];
-                GameObject createdTile = Instantiate(toInstantiate, new Vector3(x,y,0), Quaternion.identity);
-                createdTile.transform.SetParent(levelHolder);
+                var empty = new GameObject();
+                temp.Add(empty);
+            }
+            map.Add(temp);
+        }
+        foreach(List<GameObject> list in map)
+        {
+            foreach(GameObject each in list)
+            {
+                Debug.Log("WOW");
             }
         }
+       
     }
 
-    //Chooses a random position from gridPositions, returns it, and deletes it from
-    //gridPositions to prevent more than 1 object being place in such position
-    Vector3 RandomPosition()
+    //Puts the right and left walls on the level
+    void CreateWalls()
     {
-        int randomPos = Random.Range(0, gridPositions.Count);
-        Vector3 pos = gridPositions[randomPos];
-        gridPositions.RemoveAt(randomPos);
-        return pos; 
-    }
-
-    void LayoutObject(List<GameObject> tileObject, int min, int max )
-    {
-        int numberToInstantiate = Random.Range(min, max);
-        for(int i = 0; i < numberToInstantiate; i++)
+       
+        for(int i = 12*rows; i > 0; i--)
         {
-            GameObject tileToSpawn = tileObject[Random.Range(0, tileObject.Count)];
-            Instantiate(tileToSpawn, RandomPosition(), Quaternion.identity);
+            Instantiate(walls, new Vector3(-1, i -7, 0), Quaternion.identity);
+            Instantiate(walls, new Vector3(20*(columns)-1, i-7, 0), Quaternion.identity);
         }
     }
 
+    //Creates path that connects floors by using special level chunks
+    void ConnectFloors()
+    {
+        int stairs = 999999;
+        for(int i = 0; i < rows -1; i++)
+        {
+            int tileToChange = Random.Range(0, columns);
+            while (tileToChange == stairs)
+                tileToChange = Random.Range(0, columns);
+
+            GameObject choosenTile = map[i][tileToChange];
+            GameObject aboveChoosenTile = map[i+1][tileToChange];
+            Destroy(choosenTile);
+            Destroy(aboveChoosenTile);
+            
+            GameObject stairsTile = (GameObject)Instantiate(levelPiecesE[Random.Range(0, levelPiecesE.Capacity)], new Vector3(tileToChange*levelWidth, i*levelHeight, 0), Quaternion.identity);
+            map[i][tileToChange] = stairsTile;
+
+
+            GameObject holeTile = (GameObject)Instantiate(levelPiecesD[Random.Range(0, levelPiecesD.Capacity)], new Vector3(tileToChange * levelWidth, (i+1)*levelHeight, 0), Quaternion.identity);
+            map[i + 1][tileToChange] = holeTile;
+
+            stairs = tileToChange;
+        }
+    }
 }
