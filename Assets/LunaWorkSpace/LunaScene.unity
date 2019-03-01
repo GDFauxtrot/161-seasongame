@@ -319,11 +319,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1656eb79b387d4498a5f1e7502e99d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 2
-  columns: 3
+  rows: 10
+  columns: 10
   levelWidth: 20
   levelHeight: 12
-  levelTypes: 2
+  levelTypes: 6
   levelPiecesA:
   - {fileID: 4668701881166841567, guid: 0c8ba9a01aeef794d98d8f8c4090f5bf, type: 3}
   - {fileID: 7516813578064853059, guid: 14198807524b4ca4da49419d1e0d41e7, type: 3}
@@ -345,6 +345,7 @@ MonoBehaviour:
   levelPiecesF:
   - {fileID: 8138050465148867015, guid: 464ef1731df345f4ba2e7e669d723b3c, type: 3}
   - {fileID: 8138050465148867015, guid: d5f4ae6f71e3cd544ae71b592e65f6f1, type: 3}
+  walls: {fileID: 4134923089298155778, guid: 58f16685b70024948829b2820485035c, type: 3}
 --- !u!1001 &833271386272146372
 PrefabInstance:
   m_ObjectHideFlags: 0
