@@ -12,20 +12,30 @@ public class LevelPieceCreator : MonoBehaviour
 
     [Header("Level Pieces")]
     public int levelTypes;
+    
+    //Regular level pieces
     public List<GameObject> levelPiecesA;
     public List<GameObject> levelPiecesB;
     public List<GameObject> levelPiecesC;
+    [Space]
+    [Space]
+    //Floor connectors
     public List<GameObject> levelPiecesD;
     public List<GameObject> levelPiecesE;
     public List<GameObject> levelPiecesF;
+    public GameObject walls;
 
-    Dictionary<Vector3, int> levelMap;
+    //Dictionary<GameObject, int> levelMap;
+    List<List<GameObject>> map = new List<List<GameObject>>();
     Transform levelHolder;
 
     // Start is called before the first frame update
     void Start()
     {
+        InitializeMap();
         PopulateLevel();
+        CreateWalls();
+        ConnectFloors();
     }
 
     // Update is called once per frame
@@ -41,7 +51,7 @@ public class LevelPieceCreator : MonoBehaviour
         List<int> filledInLevels = new List<int>(rows * columns);
         int xPosition = 0;
         int yPosition = 0;
-        filledInLevels.Add(placeStairs());
+        //filledInLevels.Add(placeStairs());
 
         int count = 0;
         for (int i = 0; i < rows; i++)
@@ -51,13 +61,17 @@ public class LevelPieceCreator : MonoBehaviour
                 Debug.Log(i*columns + j);
                 //if (filledInLevels.Contains(i*columns + j)) 
                 //{
-                    GameObject toInstantiate = Instantiate(IdToLvlType(ChooseRandomPiece()),
-                        new Vector3(xPosition, yPosition,0),
-                        Quaternion.identity);
-                    toInstantiate.transform.parent = levelHolder;
-                    xPosition += levelWidth;
-                    filledInLevels.Add(i*columns + j);
-                    count++;
+                GameObject toInstantiate;
+
+                
+                toInstantiate = Instantiate(IdToLvlType(Random.Range(0, 3)), new Vector3(xPosition, yPosition, 0), Quaternion.identity);
+               
+
+                toInstantiate.transform.parent = levelHolder;
+                map[i][j] = toInstantiate; //added to map 2DList of Map
+                xPosition += levelWidth;
+                filledInLevels.Add(i*columns + j);
+                count++;
                 //}
             }
             xPosition = 0;
@@ -89,11 +103,7 @@ public class LevelPieceCreator : MonoBehaviour
         return floorNum;
     }
 
-    int ChooseRandomPiece()
-    {
-        return Random.Range(0, levelTypes);
-        
-    }
+
 
     //Maps the id to a randomly grab list of pieces from the right piece based on ID
     GameObject IdToLvlType(int id)
@@ -109,16 +119,6 @@ public class LevelPieceCreator : MonoBehaviour
             case 2:
                 levelPiece = levelPiecesC[Random.Range(0, levelPiecesC.Capacity)];
                 break;
-            case 3:
-                levelPiece = levelPiecesD[Random.Range(0, levelPiecesD.Capacity)];
-                break;
-            case 4:
-                levelPiece = levelPiecesE[Random.Range(0, levelPiecesE.Capacity)];
-                break;
-            case 5:
-                levelPiece = levelPiecesF[Random.Range(0, levelPiecesF.Capacity)];
-                break;
-           
         }
 
         if (levelPiece == null)
@@ -126,5 +126,69 @@ public class LevelPieceCreator : MonoBehaviour
         return levelPiece;
     }
 
-    
+    void InitializeMap()
+    {
+        for(int i = 0; i < rows; i++)
+        {
+            List<GameObject> temp = new List<GameObject>();
+            for(int j = 0; j < columns; j++)
+            {
+                var empty = new GameObject();
+                temp.Add(empty);
+            }
+            map.Add(temp);
+        }
+        foreach(List<GameObject> list in map)
+        {
+            foreach(GameObject each in list)
+            {
+                Debug.Log("WOW");
+            }
+        }
+        /*
+        int count = 0;
+        for(int r = 0; r < rows; r++)
+        {
+            for(int c = 0; c < columns; c++)
+            {
+                count++;
+            }
+        }
+        */
+    }
+
+    void CreateWalls()
+    {
+       
+        for(int i = 12*rows; i > 0; i--)
+        {
+            Instantiate(walls, new Vector3(-1, i -7, 0), Quaternion.identity);
+            Instantiate(walls, new Vector3(20*(columns)-1, i-7, 0), Quaternion.identity);
+        }
+    }
+
+    void ConnectFloors()
+    {
+        int stairs = 999999;
+        for(int i = 0; i < rows -1; i++)
+        {
+            int tileToChange = Random.Range(0, columns);
+            while (tileToChange == stairs)
+                tileToChange = Random.Range(0, columns);
+
+            GameObject choosenTile = map[i][tileToChange];
+            GameObject aboveChoosenTile = map[i+1][tileToChange];
+            Destroy(choosenTile);
+            Destroy(aboveChoosenTile);
+            
+            GameObject stairsTile = (GameObject)Instantiate(levelPiecesE[Random.Range(0, levelPiecesE.Capacity)], new Vector3(tileToChange*levelWidth, i*levelHeight, 0), Quaternion.identity);
+            map[i][tileToChange] = stairsTile;
+
+
+            GameObject holeTile = (GameObject)Instantiate(levelPiecesD[Random.Range(0, levelPiecesD.Capacity)], new Vector3(tileToChange * levelWidth, (i+1)*levelHeight, 0), Quaternion.identity);
+            map[i + 1][tileToChange] = holeTile;
+
+            stairs = tileToChange;
+        }
+    }
 }
