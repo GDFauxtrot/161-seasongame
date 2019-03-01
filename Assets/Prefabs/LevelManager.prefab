@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 833271385635350565}
-  - component: {fileID: 833271385635350566}
+  - component: {fileID: 858166209}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &833271385635350566
+--- !u!114 &858166209
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,29 +40,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 833271385635350564}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10dea7e643cea7f4aa31f4076bfc128b, type: 3}
+  m_Script: {fileID: 11500000, guid: a1656eb79b387d4498a5f1e7502e99d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  columns: 40
-  rows: 8
-  seasoningsCount:
-    minimum: 5
-    maximum: 8
-  platformsCount:
-    minimum: 5
-    maximum: 8
-  floorTiles:
-  - {fileID: 4134923089298155778, guid: b218dc7a73bbdfa4390871d9ac51493e, type: 3}
-  backgroundTiles:
-  - {fileID: 4134923089298155778, guid: aa9286d30b5922f4a9925afa6fa24f39, type: 3}
-  ceilingTiles:
-  - {fileID: 4134923089298155778, guid: 48d7df6b06bee4443a2beeaf609ea8f1, type: 3}
-  rightWallTiles:
-  - {fileID: 4134923089298155778, guid: 772732f4a3c405b4d914ef8e4589180f, type: 3}
-  leftWallTiles:
-  - {fileID: 4134923089298155778, guid: 58f16685b70024948829b2820485035c, type: 3}
-  platformTiles:
-  - {fileID: 4134923089298155778, guid: 19b440e59d7ff444299d1251672db629, type: 3}
-  seasonings:
-  - {fileID: 644676875203435768, guid: 01c0bbece74dab74db93973b4d13b095, type: 3}
-  levelHolder: {fileID: 0}
+  rows: 3
+  columns: 4
+  levelWidth: 20
+  levelHeight: 12
+  levelTypes: 6
+  levelPiecesA: []
+  levelPiecesB: []
+  levelPiecesC: []
+  levelPiecesD: []
+  levelPiecesE: []
+  walls: {fileID: 4134923089298155778, guid: 58f16685b70024948829b2820485035c, type: 3}
