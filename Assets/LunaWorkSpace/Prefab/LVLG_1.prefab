@@ -1364,7 +1364,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -4508,7 +4508,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -4952,7 +4952,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -5396,7 +5396,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -8207,7 +8207,7 @@ GameObject:
   - component: {fileID: 3312506213000210625}
   - component: {fileID: 7661599639740288314}
   m_Layer: 0
-  m_Name: LVLH
+  m_Name: LVLG_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8243,9 +8243,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80a006e7e9bdfa4ba4893602a47b782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelID: 0
-  illegalAdjacentLevels: 
-  requiredAdjacentLevel: 
+  lvlID: 0
+  illegalAdjacentLvls: 
+  requiredAdjacentLvl: 
+  requiredUpperLvl: 
 --- !u!1 &8504829146157049424
 GameObject:
   m_ObjectHideFlags: 0
