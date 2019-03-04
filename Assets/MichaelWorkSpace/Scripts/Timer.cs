@@ -18,7 +18,7 @@ public class Timer : MonoBehaviour
     void Update()
     {
         UpdateTime();
-        CheckEndGame();
+        //CheckEndGame();
     }
 
     void CheckEndGame()
