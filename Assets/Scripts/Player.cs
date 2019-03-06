@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     [Header("Camera")]
     public float screenShakeAmount;
     public float screenShakeDecay;
+    public float screenShakeMax;
     public CinemachineVirtualCamera virtualCam;
     private CinemachineBasicMultiChannelPerlin noise;
 
@@ -38,6 +39,15 @@ public class Player : MonoBehaviour
     {
         groundedLastFrame = true; // triggers Midair anim correctly
         noise = virtualCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+
+        if (GameManager.Instance)
+        {
+            GameManager.Instance.player = this;
+        }
+        else
+        {
+            Debug.LogError("No GameManager in this scene! One must be added!");
+        }
     }
 
     void Update()
@@ -104,7 +114,7 @@ public class Player : MonoBehaviour
     void LateUpdate()
     {
         // SCREEN SHAKE
-        screenShakeAmount = Mathf.Clamp(screenShakeAmount - screenShakeDecay * Time.deltaTime, 0, float.MaxValue);
+        screenShakeAmount = Mathf.Clamp(screenShakeAmount - screenShakeDecay * Time.deltaTime, 0, screenShakeMax);
         noise.m_AmplitudeGain = screenShakeAmount;
     }
 

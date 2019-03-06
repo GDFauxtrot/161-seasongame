@@ -18,8 +18,8 @@ TagManager:
   - Player
   - Shopper
   - Ground
-  - 
-  - 
+  - ShopperHitPlayer
+  - ShopperKnockOut
   - 
   - 
   - 
@@ -45,4 +45,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 699299617
+    locked: 0
+  - name: ShopperKnockOut
+    uniqueID: 2418062967
     locked: 0

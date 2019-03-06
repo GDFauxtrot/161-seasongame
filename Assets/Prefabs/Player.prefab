@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Follow: {fileID: 8432134052890386772}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 10
+    OrthographicSize: 5
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -486,6 +486,7 @@ MonoBehaviour:
   rb2D: {fileID: 6688032315154783171}
   screenShakeAmount: 0
   screenShakeDecay: 10
+  screenShakeMax: 10
   virtualCam: {fileID: 3829075930574273202}
   spriteAnimator: {fileID: 9117821547220208296}
   runningSpeedRange: {x: 0, y: 32}
