@@ -9,4 +9,5 @@ public class LevelPiece: MonoBehaviour
     public List<int> requiredAdjacentLvl;
     public List<int> requiredUpperLvl;
 
+    public List<Transform> seasonSpawnLocations;
 }

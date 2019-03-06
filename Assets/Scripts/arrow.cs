@@ -8,9 +8,13 @@ public class arrow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        seasoning = GameObject.FindGameObjectWithTag("seasoning");
+        StartCoroutine(Delay());
     }
 
+    IEnumerator Delay(){
+        yield return new WaitForSeconds(1f);
+        seasoning = GameObject.FindGameObjectWithTag("seasoning");
+    }
     // Update is called once per frame
     void Update()
     {

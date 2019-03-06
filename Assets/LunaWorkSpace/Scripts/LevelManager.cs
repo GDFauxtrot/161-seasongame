@@ -24,6 +24,9 @@ public class LevelManager : MonoBehaviour
     public List<GameObject> levelPiecesD; //Level piece with holes in the floor
     public List<GameObject> levelPiecesE; //Level piece with stairs to go to upper floor
     public GameObject walls;
+    public GameObject seasoning;
+
+    public List<Transform> seasoningLocations;
 
     //2DList that keep tracks of all level pieces and their locations based on index
     List<List<GameObject>> map = new List<List<GameObject>>();
@@ -38,6 +41,8 @@ public class LevelManager : MonoBehaviour
         PopulateLevel();
         CreateWalls();
         ConnectFloors();
+        GetAllSeasoningTransforms();
+        StartSeasoning();
     }
 
     //Randomly generates a levle by using normal level chunk pieces
@@ -169,5 +174,30 @@ public class LevelManager : MonoBehaviour
 
             stairs = tileToChange;
         }
+    }
+
+    void GetAllSeasoningTransforms(){
+        foreach(List<GameObject> list in map){
+            foreach(GameObject piece in list){
+                if(piece.GetComponent<LevelPiece>() != null){
+
+                foreach(Transform each in piece.GetComponent<LevelPiece>().seasonSpawnLocations){
+                    if(each != null)
+                        seasoningLocations.Add(each);
+                }
+                }
+            }
+        }
+    }
+
+    void StartSeasoning(){
+        Instantiate(seasoning, seasoningLocations[0].position, Quaternion.identity);
+    }
+
+    
+
+    public Transform ChangeSeasoningLocation(){
+        Transform newLocation = seasoningLocations[Random.Range(0, seasoningLocations.Capacity)];
+        return newLocation;
     }
 }
