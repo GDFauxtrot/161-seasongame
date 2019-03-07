@@ -189,6 +189,7 @@ public class LevelManager : MonoBehaviour
 
     void StartSeasoning(){
         seasoning.transform.position = ChangeSeasoningLocation().position;
+        
     }
 
     
