@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -68,4 +69,10 @@ public class UIManager : MonoBehaviour
         score += amount;
         scoreTextUI.text = score.ToString();
     }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    
 }

@@ -517,6 +517,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7644639011492733818, guid: 85591a850cf0a3f4c8f1800f57301104,
+        type: 3}
+      propertyPath: gameOverWindow
+      value: 
+      objectReference: {fileID: 1549679469}
+    - target: {fileID: 7644639011492733818, guid: 85591a850cf0a3f4c8f1800f57301104,
+        type: 3}
+      propertyPath: curTime
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7644639011492733700, guid: 85591a850cf0a3f4c8f1800f57301104,
         type: 3}
       propertyPath: canvasTextUI
@@ -527,6 +537,11 @@ PrefabInstance:
       propertyPath: scoreTextUI
       value: 
       objectReference: {fileID: 1896233579}
+    - target: {fileID: 7644639012659968203, guid: 85591a850cf0a3f4c8f1800f57301104,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7644639012318997630, guid: 85591a850cf0a3f4c8f1800f57301104,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -596,6 +611,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7644639012642821741, guid: 85591a850cf0a3f4c8f1800f57301104,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7644639012642821743, guid: 85591a850cf0a3f4c8f1800f57301104,
         type: 3}
@@ -642,6 +662,36 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7644639013247849963, guid: 85591a850cf0a3f4c8f1800f57301104,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7644639013247849963, guid: 85591a850cf0a3f4c8f1800f57301104,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7644639013247849963, guid: 85591a850cf0a3f4c8f1800f57301104,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7644639013247849963, guid: 85591a850cf0a3f4c8f1800f57301104,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 1732054632}
+    - target: {fileID: 7644639013247849963, guid: 85591a850cf0a3f4c8f1800f57301104,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: ReloadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 7644639013247849963, guid: 85591a850cf0a3f4c8f1800f57301104,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7644639012662440444, guid: 85591a850cf0a3f4c8f1800f57301104,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -669,6 +719,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8432134052890386772, guid: a45744e3443000e48807a20982802fa3,
     type: 3}
   m_PrefabInstance: {fileID: 1724452596}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1549679469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7644639011379401013, guid: 85591a850cf0a3f4c8f1800f57301104,
+    type: 3}
+  m_PrefabInstance: {fileID: 989980496}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1724452596
 PrefabInstance:
@@ -747,10 +803,15 @@ PrefabInstance:
       propertyPath: m_ScreenY
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 6688032315154783171, guid: a45744e3443000e48807a20982802fa3,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8432134052890386773, guid: a45744e3443000e48807a20982802fa3,
         type: 3}
       propertyPath: jumpSpeed
-      value: 14
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a45744e3443000e48807a20982802fa3, type: 3}
