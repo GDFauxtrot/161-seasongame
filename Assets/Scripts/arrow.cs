@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class arrow : MonoBehaviour
 {
-    private GameObject seasoning;
+    public GameObject seasoning;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Delay());
+        //StartCoroutine(Delay());
     }
 
     IEnumerator Delay(){
