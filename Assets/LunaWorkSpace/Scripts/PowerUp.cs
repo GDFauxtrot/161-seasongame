@@ -5,14 +5,14 @@ using UnityEngine;
 public class PowerUp : MonoBehaviour
 {
     public LevelManager levelManager;
+    public UIManager uIManager;
 
-
-    void Start(){
-        levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
-    }
+   
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         Transform newLocation = levelManager.ChangeSeasoningLocation();
-        transform.position = newLocation.position;    
+        transform.position = newLocation.position;
+        uIManager.IncreaseScore(1);
     }
 }
