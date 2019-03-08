@@ -12,7 +12,7 @@ public class arrow : MonoBehaviour
     }
 
     IEnumerator Delay(){
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.1f);
         seasoning = GameObject.FindGameObjectWithTag("seasoning");
     }
     // Update is called once per frame
