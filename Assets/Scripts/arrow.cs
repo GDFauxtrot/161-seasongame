@@ -2,33 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class arrow : MonoBehaviour
+public class Arrow : MonoBehaviour
 {
-    public GameObject seasoning;
-    // Start is called before the first frame update
-    void Start()
-    {
-        //StartCoroutine(Delay());
-    }
-
-    IEnumerator Delay(){
-        yield return new WaitForSeconds(.1f);
-        seasoning = GameObject.FindGameObjectWithTag("seasoning");
-    }
-    // Update is called once per frame
+    public float radius;
+    public Transform destination;
+    
     void Update()
     {
-        rotateArrow();
-    }
+        transform.localPosition = Vector3.zero;
 
-    void rotateArrow()
-    {
-        //take difference in position so we know where to point
-        Vector3 pointing = seasoning.transform.position - this.transform.position;
-        pointing.Normalize();
-        float rotateZ = Mathf.Atan2(pointing.y, pointing.x) * Mathf.Rad2Deg;
+        if (destination)
+        {
+            //take difference in position so we know where to point
+            Vector3 pointing = (destination.position - transform.position).normalized;
+            float rotateZ = Mathf.Atan2(pointing.y, pointing.x) * Mathf.Rad2Deg;
 
-        //rotate the arrow using the differences saved
-        transform.rotation = Quaternion.Euler(0f, 0f, rotateZ);
+            //rotate the arrow using the differences saved
+            transform.rotation = Quaternion.Euler(0f, 0f, rotateZ);
+
+            // Move forward by radius amount from the center of where we are
+            transform.position = transform.position + transform.right * radius;
+        }
     }
 }
