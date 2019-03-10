@@ -24,6 +24,9 @@ public class LevelManager : MonoBehaviour
     public List<GameObject> levelPiecesD; //Level piece with holes in the floor
     public List<GameObject> levelPiecesE; //Level piece with stairs to go to upper floor
     public GameObject walls;
+    public GameObject seasoning;
+
+    public List<Transform> seasoningLocations;
 
     //2DList that keep tracks of all level pieces and their locations based on index
     List<List<GameObject>> map = new List<List<GameObject>>();
@@ -31,13 +34,20 @@ public class LevelManager : MonoBehaviour
     //Parent of all level pieces generated on scene
     Transform levelHolder;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         InitializeMap();
         PopulateLevel();
         CreateWalls();
         ConnectFloors();
+        GetAllSeasoningTransforms();
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+        StartSeasoning();
     }
 
     //Randomly generates a levle by using normal level chunk pieces
@@ -96,13 +106,13 @@ public class LevelManager : MonoBehaviour
         GameObject levelPiece = null;
         switch (id) {
             case 0:
-                levelPiece = levelPiecesA[Random.Range(0, levelPiecesA.Capacity)];
+                levelPiece = levelPiecesA[Random.Range(0, levelPiecesA.Count)];
                 break;
             case 1:
-                levelPiece = levelPiecesB[Random.Range(0, levelPiecesB.Capacity)];
+                levelPiece = levelPiecesB[Random.Range(0, levelPiecesB.Count)];
                 break;
             case 2:
-                levelPiece = levelPiecesC[Random.Range(0, levelPiecesC.Capacity)];
+                levelPiece = levelPiecesC[Random.Range(0, levelPiecesC.Count)];
                 break;
         }
 
@@ -124,14 +134,6 @@ public class LevelManager : MonoBehaviour
             }
             map.Add(temp);
         }
-        foreach(List<GameObject> list in map)
-        {
-            foreach(GameObject each in list)
-            {
-                Debug.Log("WOW");
-            }
-        }
-       
     }
 
     //Puts the right and left walls on the level
@@ -160,14 +162,41 @@ public class LevelManager : MonoBehaviour
             Destroy(choosenTile);
             Destroy(aboveChoosenTile);
             
-            GameObject stairsTile = (GameObject)Instantiate(levelPiecesE[Random.Range(0, levelPiecesE.Capacity)], new Vector3(tileToChange*levelWidth, i*levelHeight, 0), Quaternion.identity);
+            GameObject stairsTile = (GameObject)Instantiate(levelPiecesE[Random.Range(0, levelPiecesE.Count)], new Vector3(tileToChange*levelWidth, i*levelHeight, 0), Quaternion.identity);
             map[i][tileToChange] = stairsTile;
 
 
-            GameObject holeTile = (GameObject)Instantiate(levelPiecesD[Random.Range(0, levelPiecesD.Capacity)], new Vector3(tileToChange * levelWidth, (i+1)*levelHeight, 0), Quaternion.identity);
+            GameObject holeTile = (GameObject)Instantiate(levelPiecesD[Random.Range(0, levelPiecesD.Count)], new Vector3(tileToChange * levelWidth, (i+1)*levelHeight, 0), Quaternion.identity);
             map[i + 1][tileToChange] = holeTile;
 
             stairs = tileToChange;
         }
+    }
+
+    void GetAllSeasoningTransforms(){
+        foreach(List<GameObject> list in map){
+            foreach(GameObject piece in list){
+                if(piece.GetComponent<LevelPiece>() != null){
+
+                    foreach(Transform each in piece.GetComponent<LevelPiece>().seasonSpawnLocations){
+                        if(each != null)
+                            seasoningLocations.Add(each);
+                    }
+                }
+            }
+        }
+    }
+
+    void StartSeasoning(){
+        seasoning.transform.position = ChangeSeasoningLocation().position;
+        
+    }
+
+    
+
+    public Transform ChangeSeasoningLocation(){
+        int ranInt = Random.Range(0, seasoningLocations.Count);
+        Transform newLocation = seasoningLocations[ranInt];
+        return newLocation;
     }
 }

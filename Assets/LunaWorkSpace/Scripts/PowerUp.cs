@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
+    public LevelManager levelManager;
+    public UIManager uIManager;
+
+   
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(this.gameObject);    
+        
+        Transform newLocation = levelManager.ChangeSeasoningLocation();
+        transform.position = newLocation.position;
+        uIManager.IncreaseScore(1);
     }
 }

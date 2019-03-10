@@ -1,17 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     CanvasGroup pauseMenu;
     CanvasGroup controlMenu;
     bool pauseMenuIsActive = false;
+    public TextMeshProUGUI scoreTextUI;
+    private int score;
 
     void Start()
     {
         pauseMenu = GameObject.Find("PauseMenu").GetComponent<CanvasGroup>();
         controlMenu = GameObject.Find("ControlsMenu").GetComponent<CanvasGroup>();
+        score = 0;
     }
 
     void Update()
@@ -59,4 +64,15 @@ public class UIManager : MonoBehaviour
         pauseMenuIsActive = !pauseMenuIsActive;
     }
 
+    public void IncreaseScore(int amount)
+    {
+        score += amount;
+        scoreTextUI.text = score.ToString();
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    
 }

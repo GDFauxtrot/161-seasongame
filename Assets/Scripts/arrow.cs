@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class arrow : MonoBehaviour
 {
-    private GameObject seasoning;
+    public GameObject seasoning;
     // Start is called before the first frame update
     void Start()
     {
-        seasoning = GameObject.FindGameObjectWithTag("seasoning");
+        //StartCoroutine(Delay());
     }
 
+    IEnumerator Delay(){
+        yield return new WaitForSeconds(.1f);
+        seasoning = GameObject.FindGameObjectWithTag("seasoning");
+    }
     // Update is called once per frame
     void Update()
     {

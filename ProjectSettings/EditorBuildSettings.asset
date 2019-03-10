@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
+  - enabled: 1
+    path: Assets/MichaelWorkSpace/MainMenu.unity
+    guid: 1d9179f1d07315242893d4648f959eac
+  - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: cfd6b3ac8f3adc440942954b9ac50b44
-  - enabled: 1
-    path: Assets/Scenes/GregScene.unity
-    guid: 8917c6a4d5768444fa2051ffed367a28
   m_configObjects: {}
