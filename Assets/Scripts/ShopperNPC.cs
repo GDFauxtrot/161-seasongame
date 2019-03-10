@@ -98,7 +98,7 @@ public class ShopperNPC : MonoBehaviour
 
         GameManager.Instance.player.screenShakeAmount += screenShakeAmount;
 
-        Time.timeScale = 0;
+        // Time.timeScale = 0;
         yield return new WaitForSecondsRealtime(Time.deltaTime);
         Time.timeScale = 1;
     }
