@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-
+[RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
 
