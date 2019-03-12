@@ -10,9 +10,11 @@ public class PowerUp : MonoBehaviour
    
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+        collision.GetComponentInParent<Animator>().Play("Grab");        
+            Transform newLocation = levelManager.ChangeSeasoningLocation();
+            transform.position = newLocation.position;
+            uIManager.IncreaseScore(1);
         
-        Transform newLocation = levelManager.ChangeSeasoningLocation();
-        transform.position = newLocation.position;
-        uIManager.IncreaseScore(1);
     }
 }
