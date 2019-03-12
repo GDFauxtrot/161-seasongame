@@ -162,11 +162,11 @@ public class LevelManager : MonoBehaviour
             Destroy(choosenTile);
             Destroy(aboveChoosenTile);
             
-            GameObject stairsTile = (GameObject)Instantiate(levelPiecesE[Random.Range(0, levelPiecesE.Count)], new Vector3(tileToChange*levelWidth, i*levelHeight, 0), Quaternion.identity);
+            GameObject stairsTile = Instantiate(levelPiecesE[Random.Range(0, levelPiecesE.Count)], new Vector3(tileToChange*levelWidth, i*levelHeight, 0), Quaternion.identity);
             map[i][tileToChange] = stairsTile;
 
 
-            GameObject holeTile = (GameObject)Instantiate(levelPiecesD[Random.Range(0, levelPiecesD.Count)], new Vector3(tileToChange * levelWidth, (i+1)*levelHeight, 0), Quaternion.identity);
+            GameObject holeTile = Instantiate(levelPiecesD[Random.Range(0, levelPiecesD.Count)], new Vector3(tileToChange * levelWidth, (i+1)*levelHeight, 0), Quaternion.identity);
             map[i + 1][tileToChange] = holeTile;
 
             stairs = tileToChange;
