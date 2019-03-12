@@ -9,6 +9,9 @@ public class LevelManager : MonoBehaviour
     public int columns;
     public int levelWidth;
     public int levelHeight;
+    public int numOfShoppers;
+    public int currentShoppers;
+    public float timeBeforeRespawnShoppers;
 
     [Header("Level Pieces")]
     public int levelTypes;
@@ -25,8 +28,10 @@ public class LevelManager : MonoBehaviour
     public List<GameObject> levelPiecesE; //Level piece with stairs to go to upper floor
     public GameObject walls;
     public GameObject seasoning;
+    public GameObject shopper;
 
     public List<Transform> seasoningLocations;
+    public List<Transform> shopperLocations;
 
     //2DList that keep tracks of all level pieces and their locations based on index
     List<List<GameObject>> map = new List<List<GameObject>>();
@@ -42,6 +47,9 @@ public class LevelManager : MonoBehaviour
         CreateWalls();
         ConnectFloors();
         GetAllSeasoningTransforms();
+        GetAllShopperSpawnTransforms();
+        InitializeShoppers();
+        StartCoroutine(RespawnShoppers());
     }
     // Start is called before the first frame update
     void Start()
@@ -73,31 +81,6 @@ public class LevelManager : MonoBehaviour
             yPosition += levelHeight;
         }
     }
-    /*
-    int placeStairs()
-    {
-        int xPosition = 0;
-        int yPosition = 0;
-        int floorNum = Random.Range(0, columns);
-        switch(floorNum)
-        {
-            case 0:
-                xPosition = 0;
-                break;
-            case 1:
-                xPosition = levelWidth;
-                break;
-            case 2:
-                xPosition = levelWidth * 2;
-                break;
-        }
-        GameObject stairs = Instantiate(IdToLvlType(4), 
-            new Vector3(xPosition, yPosition, 0),
-            Quaternion.identity);
-
-        return floorNum;
-    }
-    */
 
 
     //Returns a random level piece from the level chunk specified in param
@@ -187,11 +170,60 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    void GetAllShopperSpawnTransforms()
+    {
+        foreach (List<GameObject> list in map)
+        {
+            foreach (GameObject piece in list)
+            {
+                if (piece.GetComponent<LevelPiece>() != null)
+                {
+
+                    foreach (Transform each in piece.GetComponent<LevelPiece>().shoppersSpawnLocations)
+                    {
+                        if (each != null)
+                            shopperLocations.Add(each);
+                    }
+                }
+            }
+        }
+    }
+
     void StartSeasoning(){
         seasoning.transform.position = ChangeSeasoningLocation().position;
         
     }
 
+    void InitializeShoppers()
+    {
+        currentShoppers = 0;
+        for(int i = 0; i < numOfShoppers; i++)
+        {
+            CreateShopper(shopperLocations[Random.Range(0, shopperLocations.Count)]);
+            
+        }
+    }
+
+    void CreateShopper(Transform location)
+    {
+        Instantiate(shopper, location.position, Quaternion.identity);
+        currentShoppers++;
+    }
+
+    IEnumerator RespawnShoppers()
+    {
+        while (true)
+        {
+            if(currentShoppers < numOfShoppers)
+            {
+                CreateShopper(shopperLocations[Random.Range(0, shopperLocations.Count)]);
+                currentShoppers++;
+            }
+
+            yield return new WaitForSeconds(timeBeforeRespawnShoppers);
+
+        }
+    }
     
 
     public Transform ChangeSeasoningLocation(){

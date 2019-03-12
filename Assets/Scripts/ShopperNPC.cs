@@ -24,6 +24,7 @@ public class ShopperNPC : MonoBehaviour
     public float speed;
 
     [Header("Components")]
+    public LevelManager levelManager;
     public Collider2D collider;
     public Rigidbody2D rb2d;
     public SpriteRenderer spriteRenderer;
@@ -31,6 +32,8 @@ public class ShopperNPC : MonoBehaviour
 
     void Awake()
     {
+        levelManager = FindObjectOfType<LevelManager>();
+
         AssignNewJumpSpot();
 
         spriteObj = spriteRenderer.gameObject.transform;
@@ -79,6 +82,7 @@ public class ShopperNPC : MonoBehaviour
             col.otherCollider.gameObject.layer = LayerMask.NameToLayer("ShopperKnockOut");
             collider.gameObject.layer = LayerMask.NameToLayer("ShopperKnockOut");
 
+            levelManager.currentShoppers--;
             StartCoroutine(KnockOutCoroutine());
             // Cleans up for us after more than enough time has passed
             Destroy(gameObject, 8);

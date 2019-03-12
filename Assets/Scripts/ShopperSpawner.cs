@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ShopperSpawner : MonoBehaviour
 {
+    public int amountOfShoppers;
     public GameObject prefab;
+    
 
     void Awake()
     {

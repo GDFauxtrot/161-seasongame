@@ -251,6 +251,7 @@ MonoBehaviour:
   knockoutForceMax: 15
   knockoutGravity: 2
   speed: 1
+  levelManager: {fileID: 858166209, guid: 69da54e087ce2b94dae8f0f6d4d1e733, type: 3}
   collider: {fileID: 59}
   rb2d: {fileID: 57}
   spriteRenderer: {fileID: 60}

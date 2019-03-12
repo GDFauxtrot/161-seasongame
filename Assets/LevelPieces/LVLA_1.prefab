@@ -117,7 +117,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3003554988552051678}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.49, y: -5.15, z: 0.26488742}
+  m_LocalPosition: {x: 2.38, y: -3.99, z: 0.26488742}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4668701881166841560}
@@ -157,6 +157,7 @@ Transform:
   - {fileID: 4668701882383631798}
   - {fileID: 7467038807729520329}
   - {fileID: 8544385393028675731}
+  - {fileID: 8712249667594679594}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -180,6 +181,9 @@ MonoBehaviour:
   - {fileID: 6689550081449966798}
   - {fileID: 2819338877979430713}
   - {fileID: 8004739347032214006}
+  shoppersSpawnLocations:
+  - {fileID: 8544385393028675731}
+  - {fileID: 8712249667594679594}
 --- !u!1 &4668701881484132142
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,6 +355,36 @@ Transform:
   - {fileID: 8766464500865738966}
   m_Father: {fileID: 4668701881166841560}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7481577326430442570
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8712249667594679594}
+  m_Layer: 0
+  m_Name: ShopperSpawnLocations (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8712249667594679594
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7481577326430442570}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 17.26, y: -3.9900002, z: 0.26488742}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4668701881166841560}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8656579745519250693
 GameObject:
