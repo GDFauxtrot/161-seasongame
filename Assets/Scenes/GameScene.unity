@@ -280,7 +280,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.0627451, g: 0.43137258, b: 0.54901963, a: 0}
+  m_BackGroundColor: {r: 0.43921572, g: 0.52156866, b: 0.54901963, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -428,6 +428,9 @@ MonoBehaviour:
   columns: 5
   levelWidth: 20
   levelHeight: 12
+  numOfShoppers: 200
+  currentShoppers: 0
+  timeBeforeRespawnShoppers: 0.5
   levelTypes: 6
   levelPiecesA:
   - {fileID: 4668701881166841567, guid: 0c8ba9a01aeef794d98d8f8c4090f5bf, type: 3}
@@ -450,7 +453,9 @@ MonoBehaviour:
   walls: {fileID: 4134923089298155778, guid: 58f16685b70024948829b2820485035c, type: 3}
   seasoning: {fileID: 644676875203435768, guid: 01c0bbece74dab74db93973b4d13b095,
     type: 3}
+  shopper: {fileID: 52, guid: 31af5c456d9852f4896bcfeef332eb62, type: 3}
   seasoningLocations: []
+  shopperLocations: []
 --- !u!1001 &989980496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -774,6 +779,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6688032315154783171, guid: a45744e3443000e48807a20982802fa3,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8432134052890386773, guid: a45744e3443000e48807a20982802fa3,
+        type: 3}
+      propertyPath: jumpSpeed
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6302097320817291500, guid: a45744e3443000e48807a20982802fa3,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -803,16 +818,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ScreenY
       value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6688032315154783171, guid: a45744e3443000e48807a20982802fa3,
-        type: 3}
-      propertyPath: m_GravityScale
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8432134052890386773, guid: a45744e3443000e48807a20982802fa3,
-        type: 3}
-      propertyPath: jumpSpeed
-      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a45744e3443000e48807a20982802fa3, type: 3}
