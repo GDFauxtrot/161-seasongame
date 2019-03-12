@@ -320,7 +320,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335892879}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3, y: 1.53, z: -4}
+  m_LocalPosition: {x: 1.3, y: 2.56, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -526,7 +526,7 @@ PrefabInstance:
     - target: {fileID: 7644639011492733818, guid: 85591a850cf0a3f4c8f1800f57301104,
         type: 3}
       propertyPath: curTime
-      value: 20
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7644639011492733700, guid: 85591a850cf0a3f4c8f1800f57301104,
         type: 3}
@@ -767,22 +767,12 @@ PrefabInstance:
     - target: {fileID: 8432134052890386772, guid: a45744e3443000e48807a20982802fa3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.47
+      value: -1.44
       objectReference: {fileID: 0}
     - target: {fileID: 8432134052890386772, guid: a45744e3443000e48807a20982802fa3,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6688032315154783171, guid: a45744e3443000e48807a20982802fa3,
-        type: 3}
-      propertyPath: m_GravityScale
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8432134052890386773, guid: a45744e3443000e48807a20982802fa3,
-        type: 3}
-      propertyPath: jumpSpeed
-      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 6302097320817291500, guid: a45744e3443000e48807a20982802fa3,
         type: 3}
@@ -813,6 +803,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ScreenY
       value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688032315154783171, guid: a45744e3443000e48807a20982802fa3,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8432134052890386773, guid: a45744e3443000e48807a20982802fa3,
+        type: 3}
+      propertyPath: jumpSpeed
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a45744e3443000e48807a20982802fa3, type: 3}
