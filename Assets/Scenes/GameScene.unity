@@ -531,7 +531,7 @@ PrefabInstance:
     - target: {fileID: 7644639011492733818, guid: 85591a850cf0a3f4c8f1800f57301104,
         type: 3}
       propertyPath: curTime
-      value: 10
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 7644639011492733818, guid: 85591a850cf0a3f4c8f1800f57301104,
         type: 3}
