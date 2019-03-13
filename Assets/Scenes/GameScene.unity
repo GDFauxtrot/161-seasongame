@@ -531,8 +531,20 @@ PrefabInstance:
     - target: {fileID: 7644639011492733818, guid: 85591a850cf0a3f4c8f1800f57301104,
         type: 3}
       propertyPath: curTime
-      value: 200
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7644639011492733818, guid: 85591a850cf0a3f4c8f1800f57301104,
+        type: 3}
+      propertyPath: mid
+      value: 
+      objectReference: {fileID: 11400000, guid: 723544f31fba40547b799b0a0e641370,
+        type: 2}
+    - target: {fileID: 7644639011492733818, guid: 85591a850cf0a3f4c8f1800f57301104,
+        type: 3}
+      propertyPath: low
+      value: 
+      objectReference: {fileID: 11400000, guid: 67d5c40d2510ad14382dad5a7c83dcc8,
+        type: 2}
     - target: {fileID: 7644639011492733700, guid: 85591a850cf0a3f4c8f1800f57301104,
         type: 3}
       propertyPath: canvasTextUI
@@ -651,6 +663,17 @@ PrefabInstance:
     - target: {fileID: 7644639011936858672, guid: 85591a850cf0a3f4c8f1800f57301104,
         type: 3}
       propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7644639011936858672, guid: 85591a850cf0a3f4c8f1800f57301104,
+        type: 3}
+      propertyPath: m_fontColorGradientPreset
+      value: 
+      objectReference: {fileID: 11400000, guid: 813ca0d19846ab242a0dff3eca025610,
+        type: 2}
+    - target: {fileID: 7644639011936858672, guid: 85591a850cf0a3f4c8f1800f57301104,
+        type: 3}
+      propertyPath: m_overrideHtmlColors
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7644639011379401013, guid: 85591a850cf0a3f4c8f1800f57301104,
