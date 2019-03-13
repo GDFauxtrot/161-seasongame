@@ -19,6 +19,7 @@ public class ShopperMove : MonoBehaviour
         shopperRB = GetComponent<Rigidbody2D>();
         moveSpeed = Random.Range(minSpeed, maxSpeed);
         sprite = GetComponentInChildren<SpriteRenderer>();
+        flipShopper();
     }
 
     int randomDirection()
