@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &644676875203435768
+--- !u!1 &6145732400557986120
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 644676875203435770}
-  - component: {fileID: 644676875203435769}
-  - component: {fileID: 6198018604812204247}
-  - component: {fileID: 2403900281862701116}
-  m_Layer: 0
-  m_Name: Season
-  m_TagString: seasoning
+  - component: {fileID: 6145732400557986122}
+  - component: {fileID: 6145732400557986121}
+  - component: {fileID: 8736563767333092157}
+  m_Layer: 10
+  m_Name: WallInvisible
+  m_TagString: InvisibleWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &644676875203435770
+--- !u!4 &6145732400557986122
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 644676875203435768}
+  m_GameObject: {fileID: 6145732400557986120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 67.74, y: -4.32, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 7, y: -5, z: -0.515625}
+  m_LocalScale: {x: 1, y: 1, z: 8.2337}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &644676875203435769
+--- !u!212 &6145732400557986121
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 644676875203435768}
-  m_Enabled: 1
+  m_GameObject: {fileID: 6145732400557986120}
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -69,63 +68,41 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 0084515775ca875408a99e1ebab9f17a, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300002, guid: 7784fe8444032794486fc7eee0ee4198, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &6198018604812204247
-PolygonCollider2D:
+--- !u!61 &8736563767333092157
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 644676875203435768}
+  m_GameObject: {fileID: 6145732400557986120}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.6666667, y: 2.6666667}
-    newSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.43579954, y: -0.61837703}
-      - {x: -0.09853393, y: 0.6669752}
-      - {x: 0.15471163, y: 0.66459405}
-      - {x: 0.43616262, y: -0.617251}
---- !u!114 &2403900281862701116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 644676875203435768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc9a9f4d4b784a34ab56eaff0ede5dba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelManager: {fileID: 0}
-  uIManager: {fileID: 0}
-  seasonLook:
-  - {fileID: 21300000, guid: 63f04ef4682257c4a9fcda2de382908a, type: 3}
-  - {fileID: 21300000, guid: f3692e7a50e2e2c4584eb8e76fe57221, type: 3}
-  - {fileID: 21300000, guid: 0084515775ca875408a99e1ebab9f17a, type: 3}
-  - {fileID: 21300000, guid: 5f23c8f96690ddc4abc80ad667357797, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 5612594952858762512}
   - component: {fileID: 6894557092117836921}
   - component: {fileID: 2733151459609923605}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: FloorTile (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1433,7 +1433,7 @@ GameObject:
   - component: {fileID: 9019620174565500732}
   - component: {fileID: 5326474091680573238}
   - component: {fileID: 4019243566477896953}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CeilingTile (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1751,7 +1751,7 @@ GameObject:
   - component: {fileID: 6832136819040529070}
   - component: {fileID: 5908646833188091719}
   - component: {fileID: 1180830819276815783}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: FloorTile (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2069,7 +2069,7 @@ GameObject:
   - component: {fileID: 3675003559866148928}
   - component: {fileID: 3329728689297505720}
   - component: {fileID: 6796457820498338242}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: FloorTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2599,7 +2599,7 @@ GameObject:
   - component: {fileID: 6305357552373726451}
   - component: {fileID: 2810723970437654988}
   - component: {fileID: 8487401421476322481}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: FloorTile (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2705,7 +2705,7 @@ GameObject:
   - component: {fileID: 1553270632874927963}
   - component: {fileID: 6531020133573477655}
   - component: {fileID: 999876320489852015}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CeilingTile (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2811,7 +2811,7 @@ GameObject:
   - component: {fileID: 4095907433387343390}
   - component: {fileID: 3947083134792180253}
   - component: {fileID: 5826015179375374907}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CeilingTile (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3129,7 +3129,7 @@ GameObject:
   - component: {fileID: 939366065277578373}
   - component: {fileID: 2291514881550936909}
   - component: {fileID: 1689131160825389240}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CeilingTile (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3235,7 +3235,7 @@ GameObject:
   - component: {fileID: 5508105879386907483}
   - component: {fileID: 4320243722757708965}
   - component: {fileID: 9215599774078027191}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: FloorTile (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3447,7 +3447,7 @@ GameObject:
   - component: {fileID: 194612386098475270}
   - component: {fileID: 3072595160944211164}
   - component: {fileID: 1960313200943296089}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CeilingTile (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3659,7 +3659,7 @@ GameObject:
   - component: {fileID: 1284172132779143832}
   - component: {fileID: 2215464611832972314}
   - component: {fileID: 1427378887589573658}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: FloorTile (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4295,7 +4295,7 @@ GameObject:
   - component: {fileID: 4182857502047039980}
   - component: {fileID: 4642185406796890854}
   - component: {fileID: 6918060024516437773}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CeilingTile (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4401,7 +4401,7 @@ GameObject:
   - component: {fileID: 3368523886827796506}
   - component: {fileID: 6755393879964164576}
   - component: {fileID: 6936470886031455935}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: FloorTile (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4825,7 +4825,7 @@ GameObject:
   - component: {fileID: 7844766775563389504}
   - component: {fileID: 4218884289564345767}
   - component: {fileID: 4510456963123850540}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: FloorTile (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5082,7 +5082,7 @@ GameObject:
   - component: {fileID: 2181921544109148932}
   - component: {fileID: 6074377751445551126}
   - component: {fileID: 677242381697932184}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CeilingTile (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5188,7 +5188,7 @@ GameObject:
   - component: {fileID: 1445812437015630579}
   - component: {fileID: 5173485960579466495}
   - component: {fileID: 3655138287612468038}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: FloorTile (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6086,7 +6086,7 @@ GameObject:
   - component: {fileID: 2040898178290429103}
   - component: {fileID: 7974208379861341534}
   - component: {fileID: 4548525132209849242}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: FloorTile (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6404,7 +6404,7 @@ GameObject:
   - component: {fileID: 8004318468129654769}
   - component: {fileID: 3753664149903590555}
   - component: {fileID: 5955122005687732803}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CeilingTile (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6934,7 +6934,7 @@ GameObject:
   - component: {fileID: 5713814399371778404}
   - component: {fileID: 354010059038419496}
   - component: {fileID: 8386135523414008834}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: FloorTile (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7252,7 +7252,7 @@ GameObject:
   - component: {fileID: 1810649056194480112}
   - component: {fileID: 2200494857203000960}
   - component: {fileID: 7613716647791423985}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: FloorTile (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7406,6 +7406,7 @@ MonoBehaviour:
   seasonSpawnLocations:
   - {fileID: 2923176798933377143}
   - {fileID: 2876808784372648336}
+  shoppersSpawnLocations: []
 --- !u!1 &4643952626033497348
 GameObject:
   m_ObjectHideFlags: 0
@@ -7629,7 +7630,7 @@ GameObject:
   - component: {fileID: 3646956085258161546}
   - component: {fileID: 7124811122685426592}
   - component: {fileID: 5555747070391587314}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: FloorTile (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8265,7 +8266,7 @@ GameObject:
   - component: {fileID: 6668901066257723727}
   - component: {fileID: 5328935087949484325}
   - component: {fileID: 4466680550644666674}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CeilingTile (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8795,7 +8796,7 @@ GameObject:
   - component: {fileID: 3956493075166568542}
   - component: {fileID: 3745703365064302535}
   - component: {fileID: 1761910825509017999}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: FloorTile (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9219,7 +9220,7 @@ GameObject:
   - component: {fileID: 4516164688570655782}
   - component: {fileID: 1788917156709871293}
   - component: {fileID: 5846488518178972610}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CeilingTile (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9431,7 +9432,7 @@ GameObject:
   - component: {fileID: 4579719998177127522}
   - component: {fileID: 154133368673422457}
   - component: {fileID: 2551931776145787613}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CeilingTile (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9749,7 +9750,7 @@ GameObject:
   - component: {fileID: 7394565574338031337}
   - component: {fileID: 7524252569446219979}
   - component: {fileID: 5914987515321162243}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CeilingTile (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9961,7 +9962,7 @@ GameObject:
   - component: {fileID: 2972646339688537167}
   - component: {fileID: 1487566239363359284}
   - component: {fileID: 6035733593299462122}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CeilingTile (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10597,7 +10598,7 @@ GameObject:
   - component: {fileID: 5361018027146613831}
   - component: {fileID: 1453470530638165530}
   - component: {fileID: 6159058848035852711}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: FloorTile (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10703,7 +10704,7 @@ GameObject:
   - component: {fileID: 8425636746731725551}
   - component: {fileID: 7641152699331196424}
   - component: {fileID: 2643380130325076249}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: FloorTile (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11233,7 +11234,7 @@ GameObject:
   - component: {fileID: 6837087023437330627}
   - component: {fileID: 4858085817478768761}
   - component: {fileID: 13922732210055747}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: FloorTile (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11975,7 +11976,7 @@ GameObject:
   - component: {fileID: 7872039226171989667}
   - component: {fileID: 7968320724205082281}
   - component: {fileID: 1965194703068060390}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CeilingTile (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12823,7 +12824,7 @@ GameObject:
   - component: {fileID: 3772204879899921023}
   - component: {fileID: 1528812021287507641}
   - component: {fileID: 690127739724762426}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: FloorTile (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13065,7 +13066,7 @@ GameObject:
   - component: {fileID: 2122511075159768026}
   - component: {fileID: 7018570658882751505}
   - component: {fileID: 3569007610575118402}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: FloorTile (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13171,7 +13172,7 @@ GameObject:
   - component: {fileID: 285313102710488589}
   - component: {fileID: 7064532443707557350}
   - component: {fileID: 6171079242605657487}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: FloorTile (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13277,7 +13278,7 @@ GameObject:
   - component: {fileID: 2327575322389882855}
   - component: {fileID: 3993731408214720499}
   - component: {fileID: 1394646475124532871}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CeilingTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
