@@ -67,12 +67,20 @@ public class UIManager : MonoBehaviour
     public void IncreaseScore(int amount)
     {
         score += amount;
+        StartCoroutine(ScoreJuice());
         scoreTextUI.text = score.ToString();
     }
 
     public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    IEnumerator ScoreJuice()
+    {
+        scoreTextUI.fontSize = 30;
+        yield return new WaitForSeconds(.3f);
+        scoreTextUI.fontSize = 20;
     }
     
 }
