@@ -9,6 +9,7 @@ public class Timer : MonoBehaviour
     private float originalTime;
     public TextMeshProUGUI timerUI;
     public GameObject gameOverWindow;
+    CanvasGroup gameOverCanvas;
     public TMP_ColorGradient mid;
     public TMP_ColorGradient low;
 
@@ -16,7 +17,7 @@ public class Timer : MonoBehaviour
     void Start()
     {
         originalTime = curTime;
-        gameOverWindow.SetActive(false);
+        gameOverCanvas = gameOverWindow.GetComponent<CanvasGroup>();
     }
 
     // Update is called once per frame
@@ -52,10 +53,11 @@ public class Timer : MonoBehaviour
             timerUI.colorGradientPreset = low;
         }
 
-        if(curTime < 0 && !gameOverWindow.activeSelf)
+        if(curTime < 0)
         {
+            gameOverCanvas.alpha = 1.0f;
+            gameOverCanvas.blocksRaycasts = true;
             Time.timeScale = 0;
-            gameOverWindow.SetActive(true);
         }
     }
 }
