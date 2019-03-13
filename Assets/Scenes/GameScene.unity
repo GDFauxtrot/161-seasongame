@@ -904,6 +904,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6688032315154783171, guid: a45744e3443000e48807a20982802fa3,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8432134052890386773, guid: a45744e3443000e48807a20982802fa3,
+        type: 3}
+      propertyPath: jumpSpeed
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6302097320817291500, guid: a45744e3443000e48807a20982802fa3,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -933,16 +943,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ScreenY
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6688032315154783171, guid: a45744e3443000e48807a20982802fa3,
-        type: 3}
-      propertyPath: m_GravityScale
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8432134052890386773, guid: a45744e3443000e48807a20982802fa3,
-        type: 3}
-      propertyPath: jumpSpeed
-      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a45744e3443000e48807a20982802fa3, type: 3}
