@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1.0f;
         pauseMenu = GameObject.Find("PauseMenu").GetComponent<CanvasGroup>();
         controlMenu = GameObject.Find("ControlsMenu").GetComponent<CanvasGroup>();
         score = 0;
