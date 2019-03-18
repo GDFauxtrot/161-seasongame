@@ -28,7 +28,8 @@ public class LevelManager : MonoBehaviour
     //Floor connectors
     public List<GameObject> levelPiecesD; //Level piece with holes in the floor
     public List<GameObject> levelPiecesE; //Level piece with stairs to go to upper floor
-    public GameObject walls;
+    public GameObject leftWall;
+    public GameObject rightWall;
     public GameObject seasoning;
     public GameObject shopper;
 
@@ -127,10 +128,10 @@ public class LevelManager : MonoBehaviour
     void CreateWalls()
     {
        
-        for(int i = 12*rows; i > 0; i--)
+        for(int i = (levelHeight * rows)-1; i > 1; i--)
         {
-            Instantiate(walls, new Vector3(-1, i -7, 0), Quaternion.identity);
-            Instantiate(walls, new Vector3(20*(columns)-1, i-7, 0), Quaternion.identity);
+            Instantiate(leftWall, new Vector3(-1, i -7, 0), Quaternion.identity);
+            Instantiate(rightWall, new Vector3(levelWidth *(columns), i-7, 0), Quaternion.identity);
         }
     }
 
