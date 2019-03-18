@@ -32,13 +32,14 @@ public class ShopperNPC : MonoBehaviour
 
     void Awake()
     {
-        levelManager = FindObjectOfType<LevelManager>();
-
         AssignNewJumpSpot();
-
         spriteObj = spriteRenderer.gameObject.transform;
-
         jumpSpeed += Random.Range(-jumpSpeedRandOffset, jumpSpeedRandOffset);
+    }
+
+    private void Start()
+    {
+        levelManager = GetComponentInParent<LevelManager>();
     }
 
     void Update()

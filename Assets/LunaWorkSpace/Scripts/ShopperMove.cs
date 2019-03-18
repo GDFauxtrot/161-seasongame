@@ -10,19 +10,25 @@ public class ShopperMove : MonoBehaviour
     public int maxSpeed = 25;
     private int moveSpeed = 0; //randomized speed
     private int direction = 0; //direction to move -1 or 1
+
+    [Header("Shopper Components")]
+    public List<Sprite> shoppers;
     private Rigidbody2D shopperRB; //shopper's rigidBody
-    private SpriteRenderer sprite; //shopper's spriterenderer
+    private SpriteRenderer shopperSprite; //shopper's spriterenderer
+
+
     // Start is called before the first frame update
     void Start()
     {
-        direction = randomDirection();
+        direction = RandomDirection();
         shopperRB = GetComponent<Rigidbody2D>();
         moveSpeed = Random.Range(minSpeed, maxSpeed);
-        sprite = GetComponentInChildren<SpriteRenderer>();
-        flipShopper();
+        shopperSprite = GetComponentInChildren<SpriteRenderer>();
+        RandomSprite();
+        FlipShopper();
     }
 
-    int randomDirection()
+    int RandomDirection()
     {
         int newDirection = Random.Range(0, 2);
         int returnDirection = 0;
@@ -35,12 +41,12 @@ public class ShopperMove : MonoBehaviour
         return returnDirection;
     }
 
-    void flipShopper()
+    void FlipShopper()
     {
-        if (direction == -1) //lock left
-            sprite.flipX = true;
-        else if (direction == 1) //look right
-            sprite.flipX = false;
+        if (direction == -1)
+            shopperSprite.flipX = false;
+        else if (direction == 1)
+            shopperSprite.flipX = true;
     }
 
     // Update is called once per frame
@@ -53,6 +59,11 @@ public class ShopperMove : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("InvisibleWall"))
             direction *= -1;
-            flipShopper();
+            FlipShopper();
+    }
+
+    private void RandomSprite()
+    {
+        shopperSprite.sprite = shoppers[Random.Range(0, shoppers.Count)];
     }
 }

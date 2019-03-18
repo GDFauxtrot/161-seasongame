@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Handles the generation of levels, respawn season locations, and the creation of shoppers
+/// </summary>
 public class LevelManager : MonoBehaviour
 {
     [Header("Level Stats")]
@@ -20,8 +23,7 @@ public class LevelManager : MonoBehaviour
     public List<GameObject> levelPiecesA;
     public List<GameObject> levelPiecesB;
     public List<GameObject> levelPiecesC;
-    [Space]
-    [Space]
+    [Space][Space]
 
     //Floor connectors
     public List<GameObject> levelPiecesD; //Level piece with holes in the floor
@@ -51,12 +53,14 @@ public class LevelManager : MonoBehaviour
         InitializeShoppers();
         StartCoroutine(RespawnShoppers());
     }
-    // Start is called before the first frame update
+    
     void Start()
-    {
-        
+    {  
         StartSeasoning();
     }
+
+
+    #region LevelGeneratorLogic
 
     //Randomly generates a levle by using normal level chunk pieces
     void PopulateLevel()
@@ -156,6 +160,10 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region SeasoningLogic
+
     void GetAllSeasoningTransforms(){
         foreach(List<GameObject> list in map){
             foreach(GameObject piece in list){
@@ -169,6 +177,33 @@ public class LevelManager : MonoBehaviour
             }
         }
     }
+
+
+    void StartSeasoning(){
+        seasoning.transform.position = ChangeSeasoningLocation().position;
+    }
+
+
+    public Transform ChangeSeasoningLocation()
+    {
+        int ranInt = Random.Range(0, seasoningLocations.Count);
+        Transform newLocation = seasoningLocations[ranInt];
+        return newLocation;
+    }
+
+    #endregion
+
+    #region ShopperLogic
+
+    void InitializeShoppers()
+    {
+        currentShoppers = 0;
+        for(int i = 0; i < numOfShoppers; i++)
+        {
+            CreateShopper(shopperLocations[Random.Range(0, shopperLocations.Count)]);
+        }
+    }
+
 
     void GetAllShopperSpawnTransforms()
     {
@@ -189,32 +224,20 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    void StartSeasoning(){
-        seasoning.transform.position = ChangeSeasoningLocation().position;
-        
-    }
-
-    void InitializeShoppers()
-    {
-        currentShoppers = 0;
-        for(int i = 0; i < numOfShoppers; i++)
-        {
-            CreateShopper(shopperLocations[Random.Range(0, shopperLocations.Count)]);
-            
-        }
-    }
 
     void CreateShopper(Transform location)
     {
-        Instantiate(shopper, location.position, Quaternion.identity);
+        GameObject agent = Instantiate(shopper, location.position, Quaternion.identity);
+        agent.transform.SetParent(this.gameObject.transform);
         currentShoppers++;
     }
+
 
     IEnumerator RespawnShoppers()
     {
         while (true)
         {
-            if(currentShoppers < numOfShoppers)
+            if(currentShoppers < numOfShoppers-1)
             {
                 CreateShopper(shopperLocations[Random.Range(0, shopperLocations.Count)]);
                 currentShoppers++;
@@ -225,10 +248,7 @@ public class LevelManager : MonoBehaviour
         }
     }
     
+    #endregion
 
-    public Transform ChangeSeasoningLocation(){
-        int ranInt = Random.Range(0, seasoningLocations.Count);
-        Transform newLocation = seasoningLocations[ranInt];
-        return newLocation;
-    }
+   
 }
