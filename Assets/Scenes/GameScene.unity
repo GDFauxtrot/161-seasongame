@@ -1088,6 +1088,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4134923089298155778, guid: 823328a96f6f1f54da7f09b11ecb6dda,
         type: 3}
+    - target: {fileID: 858166209, guid: 69da54e087ce2b94dae8f0f6d4d1e733, type: 3}
+      propertyPath: rows
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 858166209, guid: 69da54e087ce2b94dae8f0f6d4d1e733, type: 3}
+      propertyPath: columns
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 833271385635350565, guid: 69da54e087ce2b94dae8f0f6d4d1e733,
         type: 3}
       propertyPath: m_LocalPosition.x
