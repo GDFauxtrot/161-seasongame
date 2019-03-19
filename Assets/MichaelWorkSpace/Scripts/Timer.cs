@@ -60,4 +60,6 @@ public class Timer : MonoBehaviour
             Time.timeScale = 0;
         }
     }
+
+    
 }
