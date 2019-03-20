@@ -47,12 +47,14 @@ public class UIManager : MonoBehaviour
     {
         canvas.alpha = 1f;
         canvas.blocksRaycasts = true;
+        canvas.interactable = true;
     }
 
     public void HideCanvas(CanvasGroup canvas)
     {
         canvas.alpha = 0f;
         canvas.blocksRaycasts = false;
+        canvas.interactable = false;
     }
 
     public void StartTime()
@@ -60,9 +62,14 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void ChangePauseMenuIsActive()
+    public void PauseMenuIsActive()
     {
-        pauseMenuIsActive = !pauseMenuIsActive;
+        pauseMenuIsActive = true;
+    }
+
+    public void PauseMenuNotActive()
+    {
+        pauseMenuIsActive = false;
     }
 
     public void IncreaseScore(int amount)
