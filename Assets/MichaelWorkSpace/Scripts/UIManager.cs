@@ -27,14 +27,14 @@ public class UIManager : MonoBehaviour
 
     void PauseMenuToggle()
     {
-        if (Input.GetKeyDown("escape") && !pauseMenuIsActive)
+        if (Input.GetKeyDown("p") && !pauseMenuIsActive)
         {
             Time.timeScale = 0;
             ShowCanvas(pauseMenu);
             pauseMenuIsActive = true;
         }
 
-        else if (Input.GetKeyDown("escape") && pauseMenuIsActive)
+        else if (Input.GetKeyDown("p") && pauseMenuIsActive)
         {
             Time.timeScale = 1;
             HideCanvas(pauseMenu);
